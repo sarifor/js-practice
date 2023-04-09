@@ -14,7 +14,7 @@ const getData = async () => {
     });
 
     const response = await client.get();
-    console.log(response);
+    console.log(response); // Cannot see the comments fetched
 }
 
 app.get('/', (req, res) => {
