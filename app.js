@@ -1,25 +1,26 @@
-const axios = require("axios")
-const express = require('express')
-const { YOUTUBE_API_KEY } =require('./apikeys.js')
-const app = express()
-const port = 3000
-
-console.log(YOUTUBE_API_KEY);
+require("dotenv").config();
+const axios = require("axios");
+const express = require('express');
+const cors = require("cors");
+const app = express();
+const port = 3000;
 
 const getData = async () => {
-    const baseURL = "https://www.googleapis.com/youtube/v3/commentThreads?part=snippet&key=" + YOUTUBE_API_KEY + "&videoId=Z9eqBrp_uR0&maxResults=3";
+    const baseURL = `http://newsapi.org/v2/top-headlines?country=jp&apiKey=${process.env.API_KEY}`
 
     const client = axios.create({
         baseURL: baseURL
     });
 
     const response = await client.get();
-    console.log(response); // Cannot see the comments fetched
+    return response;
 }
 
-app.get('/', (req, res) => {
-    getData();
-    res.send('Hello World!')
+app.use(cors());
+
+app.get('/', async (req, res) => {
+    const response = await getData();
+    res.send(response.data);
 })
 
 app.listen(port, () => {
