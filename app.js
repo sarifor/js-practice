@@ -37,7 +37,7 @@ app.get('/', (req, res) => {
     async function callAccessSecretVersion() {
         // Construct request
         const request = {
-          API_KEY,
+          name: API_KEY,
         };
     
         // Run request
