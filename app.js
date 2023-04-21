@@ -44,7 +44,7 @@ callAccessSecretVersion();
 app.get('/', async (req, res) => {
     try {
         const response = await getData();
-        res.send(response.data);
+        res.send(response);
     } catch (e) {
         console.log(e);
     }
