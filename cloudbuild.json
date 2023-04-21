@@ -13,7 +13,7 @@
     ],
     "availableSecrets": {
       "secretManager": [{
-        "versionName": "projects/high-science-384308/secrets/API_KEY/versions/1",
+        "versionName": "projects/694909544055/secrets/API_KEY/versions/1",
         "env": "MYSECRET"
     }]
     }
