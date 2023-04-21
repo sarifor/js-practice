@@ -32,7 +32,7 @@ app.use(cors());
 }) */
 
 app.get('/', (req, res) => {
-    console.log(MYSECRET);
+    console.log(process.env);
     res.send("test");
 })
 
