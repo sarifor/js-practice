@@ -45,7 +45,7 @@ app.get('/', async (req, res) => {
     try {
         // const dataArray = [];
         const result = await getData();
-        console.log(result);
+        console.log(result.data.articles);
         /* for (output in response) {
             dataArray.push(JSON.stringify(output));
         }
