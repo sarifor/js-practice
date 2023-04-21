@@ -41,7 +41,7 @@ app.get('/', (req, res) => {
             };
           
             const response = await secretmanagerClient.accessSecretVersion(request);
-            console.log(response[0].payload.data); // index starts from 0
+            console.log(response[0].payload.data.toString('utf-8')); // index starts from 0
         } catch (e) {
             console.log(e);
         }
