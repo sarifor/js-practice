@@ -2,7 +2,7 @@
 // const axios = require("axios");
 const express = require('express');
 const cors = require("cors");
-const googleCloud = require("secretmanager");
+import secretmanager from google.cloud
 const app = express();
 const port = 3000;
 
@@ -33,6 +33,7 @@ app.use(cors());
 }) */
 
 app.get('/', (req, res) => {
+    gcp_secret_client = secretmanager.SecretManagerServiceClient()
     secret_resource_name = "projects/694909544055/secrets/API_KEY/versions/1"
     response = gcp_secret_client.access_secret_version(secret_resource_name)
     secret_value = response.payload.data.decode('UTF-8')
