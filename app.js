@@ -2,9 +2,10 @@
 // const axios = require("axios");
 const express = require('express');
 const cors = require("cors");
-const secretmanager = require("google.cloud");
+const {SecretManagerServiceClient} = require('@google-cloud/secret-manager').v1;
 const app = express();
 const port = 3000;
+const secretmanagerClient = new SecretManagerServiceClient();
 
 /* const getData = async () => {
     try {
@@ -33,11 +34,18 @@ app.use(cors());
 }) */
 
 app.get('/', (req, res) => {
-    gcp_secret_client = secretmanager.SecretManagerServiceClient()
-    secret_resource_name = "projects/694909544055/secrets/API_KEY/versions/1"
-    response = gcp_secret_client.access_secret_version(secret_resource_name)
-    secret_value = response.payload.data.decode('UTF-8')
-    console.log(secret_value);
+    async function callAccessSecretVersion() {
+        // Construct request
+        const request = {
+          name,
+        };
+    
+        // Run request
+        const response = await secretmanagerClient.accessSecretVersion(request);
+        console.log(response);
+    }
+    callAccessSecretVersion();   
+     
     res.send("test");
 })
 
