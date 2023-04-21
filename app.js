@@ -41,7 +41,7 @@ app.get('/', (req, res) => {
             };
           
             const response = await secretmanagerClient.accessSecretVersion(request);
-            console.log(response.payload.data);
+            console.log(response.payload);
         } catch (e) {
             console.log(e);
         }
