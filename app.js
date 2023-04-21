@@ -2,7 +2,7 @@
 // const axios = require("axios");
 const express = require('express');
 const cors = require("cors");
-const googleCloud = require("import secretmanager");
+const googleCloud = require("secretmanager");
 const app = express();
 const port = 3000;
 
