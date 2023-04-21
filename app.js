@@ -34,6 +34,7 @@ async function callAccessSecretVersion() {
       
         const response = await secretmanagerClient.accessSecretVersion(request);
         API_KEY = response[0].payload.data.toString('utf-8'); // index starts from 0
+        console.log(API_KEY);
     } catch (e) {
         console.log(e);
     }
