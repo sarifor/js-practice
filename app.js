@@ -6,21 +6,29 @@ const app = express();
 const port = 3000;
 
 const getData = async () => {
-    const baseURL = `http://newsapi.org/v2/top-headlines?country=jp&apiKey=${process.env.API_KEY}`
+    try {
+        const baseURL = `http://newsapi.org/v2/top-headlines?country=jp&apiKey=${process.env.API_KEY}`
 
-    const client = axios.create({
-        baseURL: baseURL
-    });
+        const client = axios.create({
+            baseURL: baseURL
+        });
 
-    const response = await client.get();
-    return response;
+        const response = await client.get();
+        return response;
+    } catch (e) {
+        console.log(e);
+    }
 }
 
 app.use(cors());
 
 app.get('/', async (req, res) => {
-    const response = await getData();
-    res.send(response.data);
+    try {
+        const response = await getData();
+        res.send(response.data);
+    } catch (e) {
+        console.log(e);
+    }
 })
 
 app.listen(port, () => {
