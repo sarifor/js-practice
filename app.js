@@ -35,14 +35,16 @@ app.use(cors());
 
 app.get('/', (req, res) => {
     async function callAccessSecretVersion() {
-        // Construct request
-        const request = {
-          name: API_KEY,
-        };
-    
-        // Run request
-        const response = await secretmanagerClient.accessSecretVersion(request);
-        console.log(response);
+        try {
+            const request = {
+                name: API_KEY,
+            };
+          
+            const response = await secretmanagerClient.accessSecretVersion(request);
+            console.log(response);
+        } catch (e) {
+            console.log(e);
+        }
     }
     callAccessSecretVersion();   
 
