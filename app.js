@@ -46,8 +46,8 @@ app.get('/', async (req, res) => {
         const response = await getData();
         for (output in response) {
             console.log(JSON.stringify(output));
-            res.send("test");
-        }        
+        }
+        res.send("test");
     } catch (e) {
         console.log(e);
     }
