@@ -1,0 +1,20 @@
+{
+    "steps": [
+    {
+      "name": "Storing API_KEY",
+      "entrypoint": "Node.js",
+      "args": [
+        "app.js"
+      ],
+      "secretEnv": [
+        "MYSECRET"
+      ]
+    }
+    ],
+    "availableSecrets": {
+      "secretManager": [{
+        "versionName": "projects/694909544055/secrets/API_KEY/versions/1",
+        "env": "MYSECRET"
+    }]
+    }
+  }
