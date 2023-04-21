@@ -37,7 +37,7 @@ app.get('/', (req, res) => {
     async function callAccessSecretVersion() {
         try {
             const request = {
-                name: "projects/694909544055/secrets/API_KEY",
+                name: "projects/694909544055/secrets/API_KEY/versions/1",
             };
           
             const response = await secretmanagerClient.accessSecretVersion(request);
