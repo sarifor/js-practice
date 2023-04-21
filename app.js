@@ -1,4 +1,3 @@
-// require("dotenv").config();
 const axios = require("axios");
 const express = require('express');
 const cors = require("cors");
@@ -12,7 +11,6 @@ let API_KEY;
 const getData = async () => {
     try {
         const baseURL = `http://newsapi.org/v2/top-headlines?country=jp&apiKey=${API_KEY}`
-
         const client = axios.create({
             baseURL: baseURL
         });
@@ -31,10 +29,8 @@ async function callAccessSecretVersion() {
         const request = {
             name: "projects/694909544055/secrets/API_KEY/versions/2",
         };
-      
         const response = await secretmanagerClient.accessSecretVersion(request);
         API_KEY = response[0].payload.data.toString('utf-8'); // index starts from 0
-        console.log(API_KEY);
     } catch (e) {
         console.log(e);
     }
@@ -51,5 +47,5 @@ app.get('/', async (req, res) => {
 })
 
 app.listen(port, () => {
-    console.log('Go to http://localhost:3000/')
+    console.log('Go to http://34.146.64.92:3000/')
 })
