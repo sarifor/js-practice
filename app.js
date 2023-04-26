@@ -6,9 +6,9 @@ const app = express();
 const port = 3000;
 const secretmanagerClient = new SecretManagerServiceClient();
 
-/* let API_KEY;
+let API_KEY;
 
-const getData = async () => {
+/* const getData = async () => {
     try {
         const baseURL = `http://newsapi.org/v2/top-headlines?country=jp&apiKey=${API_KEY}`
         const client = axios.create({
@@ -24,18 +24,19 @@ const getData = async () => {
 
 app.use(cors());
 
-/* async function callAccessSecretVersion() {
+async function callAccessSecretVersion() {
     try {
         const request = {
             name: "projects/493842336457/secrets/newsapi_key/versions/1",
         };
         const response = await secretmanagerClient.accessSecretVersion(request);
         API_KEY = response[0].payload.data.toString('utf-8'); // index starts from 0
+        console.loog(API_KEY);
     } catch (e) {
         console.log(e);
     }
 }
-callAccessSecretVersion(); */
+callAccessSecretVersion();
 
 app.get('/', async (req, res) => {
     try {
