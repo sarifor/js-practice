@@ -8,7 +8,7 @@ const secretmanagerClient = new SecretManagerServiceClient();
 
 let API_KEY;
 
-/* const getData = async () => {
+const getData = async () => {
     try {
         const baseURL = `http://newsapi.org/v2/top-headlines?country=jp&apiKey=${API_KEY}`
         const client = axios.create({
@@ -20,7 +20,7 @@ let API_KEY;
     } catch (e) {
         console.log(e);
     }
-} */
+}
 
 app.use(cors());
 
@@ -40,9 +40,8 @@ callAccessSecretVersion();
 
 app.get('/', async (req, res) => {
     try {
-        // const result = await getData();
-        // res.send(result.data.articles);
-        res.send("test");
+        const result = await getData();
+        res.send(result.data.articles);
     } catch (e) {
         console.log(e);
     }
