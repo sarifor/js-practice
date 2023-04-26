@@ -27,7 +27,7 @@ app.use(cors());
 async function callAccessSecretVersion() {
     try {
         const request = {
-            name: "projects/694909544055/secrets/API_KEY/versions/2",
+            name: "projects/493842336457/secrets/newsapi_key/versions/1",
         };
         const response = await secretmanagerClient.accessSecretVersion(request);
         API_KEY = response[0].payload.data.toString('utf-8'); // index starts from 0
