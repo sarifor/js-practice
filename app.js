@@ -6,7 +6,7 @@ const app = express();
 const port = 3000;
 const secretmanagerClient = new SecretManagerServiceClient();
 
-let API_KEY;
+/* let API_KEY;
 
 const getData = async () => {
     try {
@@ -20,11 +20,11 @@ const getData = async () => {
     } catch (e) {
         console.log(e);
     }
-}
+} */
 
 app.use(cors());
 
-async function callAccessSecretVersion() {
+/* async function callAccessSecretVersion() {
     try {
         const request = {
             name: "projects/493842336457/secrets/newsapi_key/versions/1",
@@ -35,7 +35,7 @@ async function callAccessSecretVersion() {
         console.log(e);
     }
 }
-callAccessSecretVersion();   
+callAccessSecretVersion(); */
 
 app.get('/', async (req, res) => {
     try {
