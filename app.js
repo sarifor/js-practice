@@ -3,7 +3,7 @@ const express = require('express');
 const cors = require("cors");
 const {SecretManagerServiceClient} = require('@google-cloud/secret-manager').v1;
 const app = express();
-const port = 3000;
+const port = 80;
 const secretmanagerClient = new SecretManagerServiceClient();
 
 let API_KEY;
@@ -47,5 +47,5 @@ app.get('/', async (req, res) => {
 })
 
 app.listen(port, () => {
-    console.log('Go to http://35.202.176.94:3000/')
+    console.log('Go to http://35.202.176.94:80/')
 })
