@@ -47,5 +47,5 @@ app.get('/', async (req, res) => {
 })
 
 app.listen(port, () => {
-    console.log('Go to http://35.202.176.94:80/')
+    console.log(`Go to http://35.202.176.94:${port}/`)
 })
