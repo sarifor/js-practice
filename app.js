@@ -1,10 +1,10 @@
 const axios = require("axios");
 const express = require('express');
 const cors = require("cors");
-const {SecretManagerServiceClient} = require('@google-cloud/secret-manager').v1;
+// const {SecretManagerServiceClient} = require('@google-cloud/secret-manager').v1;
 const app = express();
 const port = 3000;
-const secretmanagerClient = new SecretManagerServiceClient();
+// const secretmanagerClient = new SecretManagerServiceClient();
 
 let API_KEY;
 
@@ -35,12 +35,13 @@ async function callAccessSecretVersion() {
         console.log(e);
     }
 }
-callAccessSecretVersion();
+// callAccessSecretVersion();
 
 app.get('/', async (req, res) => {
     try {
-        const result = await getData();
-        res.send(result.data.articles);
+        // const result = await getData();
+        // res.send(result.data.articles);
+        res.send("OK");
     } catch (e) {
         console.log(e);
     }
